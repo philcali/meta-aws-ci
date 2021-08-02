@@ -51,7 +51,7 @@ export class PrerequisitesStack extends Stack {
     // Used by: Image builder, to build a yocto image for this board.
     // Notes: this repository must exist and be usable by your token described above
     public static readonly GithubYoctoRecipeRepositoryName: string = "meta-aws-demos";
-    public static readonly GithubYoctoRecipeRepositoryOwner: string = "aws-samples";
+    public static readonly GithubYoctoRecipeRepositoryOwner: string = "philcali";
     public static readonly GithubYoctoRecipeRepositoryBranch: string = "master";
 
     // Repository: Repository where the Yocto builder CodeBuild project lives.
