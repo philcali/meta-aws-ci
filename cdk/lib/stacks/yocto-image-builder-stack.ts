@@ -25,6 +25,7 @@ export interface YoctoImageBuilderStackProps extends StackProps {
     readonly yoctoProjectRelease?: string;
     readonly machineType?: string;
     readonly projectType?: string;
+    readonly foundationType?: string;
     
     readonly baseImageRepository: ecr.Repository;
     readonly imageTag: string;
@@ -37,8 +38,9 @@ export class YoctoImageBuilderStack extends Stack {
         // Provide some default values for our props above
         const { 
             yoctoProjectRelease = "dunfell", 
-            machineType = "raspberrypi4-64", 
-            projectType = "aws-iot-greengrass-v2" 
+            machineType = "rpi4-64",
+            projectType = "aws-iot-greengrass-v2",
+            foundationType = "rpi_foundation"
         } = props;
 
 
@@ -131,7 +133,7 @@ export class YoctoImageBuilderStack extends Stack {
                     location: `${downloadCacheFilesystem.fileSystemId}.efs.${this.region}.amazonaws.com:/`
                 }),
             ],
-            buildSpec: codebuild.BuildSpec.fromSourceFilename(`${machineType}/${projectType}/${yoctoProjectRelease}/buildspec.yml`),
+	    buildSpec: codebuild.BuildSpec.fromSourceFilename(`${foundationType}/${machineType}/${projectType}/${yoctoProjectRelease}/buildspec.yml`),
         });
         //Grant access to these EFS resources by the CodeBuild project
         sstateFilesystem.connections.allowDefaultPortFrom(buildProject);
