@@ -98,7 +98,7 @@ export class YoctoImageBuilderStack extends Stack {
         const metaSourceAction = new codepipeline_actions.GitHubSourceAction({
             actionName: 'meta_aws',
             output: metaArtifact,
-            owner: 'philcali',
+            owner: 'aws',
             repo: 'meta-aws',
             branch: 'master-next',
             oauthToken: oauthToken,
