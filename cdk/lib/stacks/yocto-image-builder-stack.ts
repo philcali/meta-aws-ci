@@ -100,7 +100,7 @@ export class YoctoImageBuilderStack extends Stack {
             output: metaArtifact,
             owner: 'aws',
             repo: 'meta-aws',
-            branch: 'master-next',
+            branch: 'dunfell-next',
             oauthToken: oauthToken,
             trigger: codepipeline_actions.GitHubTrigger.POLL,
         });
