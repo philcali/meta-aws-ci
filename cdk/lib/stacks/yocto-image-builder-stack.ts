@@ -37,7 +37,7 @@ export class YoctoImageBuilderStack extends Stack {
 
         // Provide some default values for our props above
         const { 
-            yoctoProjectRelease = "hardknott", 
+            yoctoProjectRelease = "dunfell", 
             machineType = "rpi4-64",
             projectType = "aws-iot-greengrass-v2",
             bspType = "rpi_foundation"
